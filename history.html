@@ -1,0 +1,24 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>История</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="site-header"><div class="brand">Neon <span>Slots</span></div><nav class="top-nav"><a href="index.html">Играть</a><a href="withdraw.html">Выплата</a></nav></header>
+<main class="history-list"><h2>История выигрышей</h2><div id="list"></div></main>
+<script>
+function currency(n){ return Number(n).toLocaleString('ru-RU'); }
+const user = localStorage.getItem('neon_logged');
+const list = document.getElementById('list');
+if(!user){ list.innerHTML='<p>Вы не вошли — история доступна в аккаунте.</p>'; }
+else{
+  const users = JSON.parse(localStorage.getItem('neon_users')||'{}');
+  const data = users[user] || {history:[]};
+  if(!data.history || data.history.length===0) list.innerHTML='<p>История пуста.</p>';
+  else{
+    const ul = document.createElement('ul');
+    data.history.forEach(h=>{
+      const li = document.createElement('li');
+      const d = new Date(h.when);
+      li.textContent = d.toLocaleString() + ' — ' + (h.jackpot?('Джекпот '+h.jackpot+' '):'') + (h.amount? currency(h.amount)+' ₽':'') + (h.symbols? ' — '+h.symbols.join(' '):'');
+      ul.appendChild(li);
+    });
+    list.appendChild(ul);
+  }
+}
+</script></body></html>

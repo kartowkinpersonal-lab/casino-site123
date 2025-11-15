@@ -1,0 +1,27 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Выплата</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="site-header"><div class="brand">Neon <span>Slots</span></div><nav class="top-nav"><a href="index.html">Играть</a><a href="history.html">История</a></nav></header>
+<main class="container" style="max-width:720px;margin:28px auto;color:#e6f7ff">
+  <h2>Выплата (симуляция)</h2>
+  <p>Минимальная сумма вывода: <strong>50 000 ₽</strong>. Максимум: <strong>1 000 000 ₽</strong>.</p>
+  <div id="withdrawArea"></div>
+</main>
+<script>
+const user = localStorage.getItem('neon_logged');
+const area = document.getElementById('withdrawArea');
+function currency(n){ return Number(n).toLocaleString('ru-RU'); }
+if(!user){ area.innerHTML = '<p>Войдите в аккаунт, чтобы вывести средства (симуляция).</p>'; }
+else{
+  const users = JSON.parse(localStorage.getItem('neon_users')||'{}'); const data = users[user]||{balance:0};
+  area.innerHTML = '<p>Ваш баланс: <strong>'+currency(data.balance)+' ₽</strong></p>' +
+  '<label>Имя получателя: <input id="rec" placeholder="ФИО"></label><br>' +
+  '<label>Сумма: <input id="sum" type="number"></label><br>' +
+  '<button id="req">Запросить вывод</button><div id="msg"></div>';
+  document.getElementById('req').addEventListener('click', ()=>{
+    const sum = Number(document.getElementById('sum').value||0);
+    if(sum < 50000 || sum > 1000000){ document.getElementById('msg').textContent = 'Сумма должна быть от 50 000 до 1 000 000 ₽'; return; }
+    if(sum > data.balance){ document.getElementById('msg').textContent = 'Недостаточно баланса'; return; }
+    data.balance -= sum; users[user]=data; localStorage.setItem('neon_users', JSON.stringify(users));
+    document.getElementById('msg').textContent = 'Заявка принята (симуляция). Баланс снят.';
+  });
+}
+</script></body></html>
