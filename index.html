@@ -1,3 +1,10 @@
+Вот все готовые скрипты для модернизированного Neon Slots:
+
+---
+
+### index.html
+
+```html
 <!doctype html>
 <html lang="ru">
 <head>
@@ -86,3 +93,30 @@
 <script src="reels.js"></script>
 </body>
 </html>
+```
+
+---
+
+### styles.css
+
+```css
+:root{
+  --bg:#070607; --panel:#081019; --neon:#00f0ff; --accent:#ff4da6; --glass: rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 10%, #0b1220, #000), linear-gradient(180deg,#021018,#000);color:#e6f7ff;font-family:Inter,Arial,Helvetica,sans-serif}
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;background:linear-gradient(90deg,#00171f,#071426);box-shadow:0 8px 30px rgba(0,0,0,.6);position:sticky;top:0;z-index:10}
+.brand{font-weight:800;font-size:20px;color:var(--neon)} .brand span{color:var(--accent)}
+.top-nav a{color:#9fdbea;margin-left:18px;text-decoration:none;font-weight:600}
+.main{display:flex;gap:24px;max-width:1200px;margin:28px auto;padding:0 20px}
+.left-panel{width:320px;display:flex;flex-direction:column;gap:18px}
+.jackpots{background:linear-gradient(180deg,#021620,#001017);padding:16px;border-radius:12px;border:1px solid rgba(0,255,255,0.06);box-shadow:0 8px 30px rgba(0,0,0,.6)}
+.jp-row{display:flex;justify-content:space-between;padding:8px 0;color:#bfeff6;font-weight:700}
+.account-card{background:linear-gradient(180deg,#041423,#021018);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.acct-actions{display:flex;gap:8px;margin-top:8px}
+.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:var(--neon);color:#021;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#9fdbea}
+.rules{background:var(--panel);padding:12px;border-radius:10px;color:#a7d9df;font-size:14px}
+.game-area{flex:1;display:flex;flex-direction:column;gap:18px;align-items:center}
+.reel-area{display:flex;gap:
+```
