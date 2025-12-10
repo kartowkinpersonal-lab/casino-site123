@@ -1,9 +1,9 @@
-const symbols = ["🍒","🍋","💎","7️⃣","⭐"];
-const reels = [r1,r2,r3];
+const symbols = ["🍒","🍋","🔔","⭐","7️⃣"];
+const reels = [reel1,reel2,reel3];
 
 function fill(reel){
   reel.innerHTML="";
-  for(let i=0;i<20;i++){
+  for(let i=0;i<15;i++){
     const d=document.createElement("div");
     d.className="sym";
     d.textContent=symbols[Math.floor(Math.random()*symbols.length)];
@@ -13,19 +13,15 @@ function fill(reel){
 
 reels.forEach(fill);
 
-spin.onclick=()=>{
-  let bet = Number(document.getElementById("bet").value);
-  if(bet>100000000) bet=100000000;
-
+spinBtn.onclick = ()=>{
   reels.forEach(reel=>{
     fill(reel);
     reel.style.transition="none";
-    reel.style.top="0px";
+    reel.style.top="0";
     setTimeout(()=>{
       reel.style.transition="top 1s ease-out";
-      reel.style.top="-864px";
+      reel.style.top="-600px";
     },10);
   });
-
-  result.textContent="Ставка: "+bet.toLocaleString()+" ₽";
+  lastResult.textContent="Спин!";
 };
