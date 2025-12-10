@@ -1,37 +1,121 @@
 :root{
---bg:#070607; --panel:#081019; --neon:#00f0ff; --accent:#ff4da6; --glass: rgba(255,255,255,0.04);
+--bg:#070607;
+--panel:#081019;
+--neon:#00f0ff;
+--accent:#ff4da6;
 }
+
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 10% 10%, #0b1220, #000), linear-gradient(180deg,#021018,#000);color:#e6f7ff;font-family:Inter,Arial,Helvetica,sans-serif}
-.site-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;background:linear-gradient(90deg,#00171f,#071426);box-shadow:0 8px 30px rgba(0,0,0,.6);position:sticky;top:0;z-index:10}
-.brand{font-weight:800;font-size:20px;color:var(--neon)} .brand span{color:var(--accent)}
-.top-nav a{color:#9fdbea;margin-left:18px;text-decoration:none;font-weight:600}
-.main{display:flex;gap:24px;max-width:1200px;margin:28px auto;padding:0 20px}
-.left-panel{width:320px;display:flex;flex-direction:column;gap:18px}
-.jackpots{background:linear-gradient(180deg,#021620,#001017);padding:16px;border-radius:12px;border:1px solid rgba(0,255,255,0.06);box-shadow:0 8px 30px rgba(0,0,0,.6)}
-.jp-row{display:flex;justify-content:space-between;padding:8px 0;color:#bfeff6;font-weight:700}
-.account-card{background:linear-gradient(180deg,#041423,#021018);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-.acct-actions{display:flex;gap:8px;margin-top:8px}
-.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:var(--neon);color:#021;}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#9fdbea}
-.rules{background:var(--panel);padding:12px;border-radius:10px;color:#a7d9df;font-size:14px}
-.game-area{flex:1;display:flex;flex-direction:column;gap:18px;align-items:center}
-.reel-area{display:flex;gap:18px;align-items:center;justify-content:center;padding:20px;border-radius:14px;background:linear-gradient(180deg,#001419,#001018);box-shadow:0 20px 60px rgba(0,0,0,.6);min-height:260px;width:100%}
-.reel{width:180px;height:220px;background:linear-gradient(180deg,#fff,#f2f2f2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:hidden;position:relative;box-shadow:0 12px 30px rgba(0,0,0,.6)}
-.strip{position:absolute;top:0;left:0;right:0}
-.sym{height:72px;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:800;border-bottom:1px solid rgba(0,0,0,0.06);background:linear-gradient(180deg,#ffffff,#f3f6ff);}
-.controls{width:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
-.bet-row{display:flex;gap:12px;align-items:center}
-input[type=number]{padding:8px;border-radius:8px;border:none;width:120px}
-.spin{padding:12px 22px;border-radius:12px;background:linear-gradient(90deg,#ffb86b,#ff6b9a);border:none;color:#041;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(255,107,160,0.12)}
-.result{min-height:28px;color:#bff7e6;font-weight:700}
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6)}
-.modal.hidden{display:none}
-.modal-card{background:linear-gradient(180deg,#fff,#f4fbff);padding:20px;border-radius:12px;color:#042;min-width:300px;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.modal-card input{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #e6eef8}
-.modal-actions{display:flex;gap:8px}
-.divider{text-align:center;color:#6b7280;margin:8px 0}
-.tg-float{position:fixed;right:20px;bottom:20px;background:linear-gradient(90deg,#1da1f2,#1296db);padding:10px;border-radius:50%;box-shadow:0 8px 30px rgba(18,150,219,0.3);display:flex;align-items:center;justify-content:center}
-.tg-float img{width:44px;height:44px}
-.history-list{max-width:900px;margin:12px auto;padding:10px}
-@media(max-width:900px){.main{flex-direction:column;padding:12px}.left-panel{width:100%}}
+
+body{
+margin:0;
+background:radial-gradient(circle at 10% 10%, #0b1220, #000);
+color:#e6f7ff;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.site-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 28px;
+background:#041423;
+}
+
+.brand{font-weight:800;font-size:20px;color:var(--neon)}
+.brand span{color:var(--accent)}
+
+.top-nav a{
+color:#9fdbea;
+margin-left:18px;
+text-decoration:none;
+}
+
+.main{
+display:flex;
+gap:24px;
+max-width:1200px;
+margin:30px auto;
+padding:0 20px;
+}
+
+.left-panel{
+width:320px;
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.jackpots,.account-card,.rules{
+background:#041423;
+padding:16px;
+border-radius:12px;
+}
+
+.jp-row{
+display:flex;
+justify-content:space-between;
+margin-top:6px;
+font-weight:700;
+}
+
+.game-area{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+}
+
+.reel-area{
+display:flex;
+gap:18px;
+padding:20px;
+background:#021018;
+border-radius:14px;
+}
+
+.reel{
+width:160px;
+height:220px;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+position:relative;
+}
+
+.strip{
+position:absolute;
+top:0;
+left:0;
+right:0;
+}
+
+.sym{
+height:72px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+border-bottom:1px solid #ddd;
+}
+
+.controls{text-align:center}
+
+input{
+padding:8px;
+border-radius:8px;
+border:none;
+width:120px;
+}
+
+.spin{
+padding:12px 22px;
+border-radius:12px;
+border:none;
+font-weight:800;
+cursor:pointer;
+background:linear-gradient(90deg,#ffb86b,#ff6b9a);
+}
+
+.result{margin-top:10px;font-weight:700}
