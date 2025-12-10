@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Neon Slots — Demo</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+
 <header class="site-header">
   <div class="brand">Neon <span>Slots</span></div>
   <nav class="top-nav">
     <a href="#">История</a>
     <a href="#">Выплата</a>
-    <a href="#">Войти</a>
   </nav>
 </header>
 
@@ -21,36 +20,33 @@
   <section class="left-panel">
     <div class="jackpots">
       <h3>Джекпоты</h3>
-      <div class="jp-row"><div>Mini</div><div id="jpMini">1050</div></div>
-      <div class="jp-row"><div>Major</div><div id="jpMajor">5025</div></div>
-      <div class="jp-row"><div>Mega</div><div id="jpMega">20010</div></div>
+      <div class="jp-row"><div>Mini</div><div id="jpMini">0</div></div>
+      <div class="jp-row"><div>Major</div><div id="jpMajor">0</div></div>
+      <div class="jp-row"><div>Mega</div><div id="jpMega">0</div></div>
     </div>
 
     <div class="account-card">
       <h3>Аккаунт</h3>
-      <div>Гость</div>
-      <div>Баланс: <b id="bal">5000</b> ₽</div>
-      <div>Бесплатные спины: <b>15</b></div>
-    </div>
-
-    <div class="rules">
-      20 бесплатных спинов. Потом ставка от 100 ₽ до 100 000 000 ₽.
+      <div>Баланс: <b id="bal">0</b> ₽</div>
+      <div>Бесплатные спины: <b id="freeSpins">0</b></div>
     </div>
   </section>
 
   <section class="game-area">
     <div class="reel-area">
-      <div class="reel"><div class="strip" id="r1"></div></div>
-      <div class="reel"><div class="strip" id="r2"></div></div>
-      <div class="reel"><div class="strip" id="r3"></div></div>
+      <div class="reel" id="reel1"></div>
+      <div class="reel" id="reel2"></div>
+      <div class="reel" id="reel3"></div>
     </div>
 
     <div class="controls">
       <div class="bet-row">
-        <input id="bet" type="number" value="500" min="100" step="100">
-        <button id="spin" class="spin">Крутить</button>
+        <label>Ставка:
+          <input id="betInput" type="number" value="500" min="100" step="100">
+        </label>
+        <button id="spinBtn" class="spin">Крутить</button>
       </div>
-      <div id="result" class="result"></div>
+      <div id="lastResult" class="result"></div>
     </div>
   </section>
 </main>
