@@ -1,121 +1,127 @@
 :root{
---bg:#070607;
---panel:#081019;
---neon:#00f0ff;
---accent:#ff4da6;
+  --neon:#00f0ff;
 }
 
 *{box-sizing:border-box}
 
 body{
-margin:0;
-background:radial-gradient(circle at 10% 10%, #0b1220, #000);
-color:#e6f7ff;
-font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  background:radial-gradient(circle at 10% 10%, #0b1220, #000);
+  color:#e6f7ff;
+  font-family:Arial,Helvetica,sans-serif
 }
 
 .site-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 28px;
-background:#041423;
+  display:flex;
+  justify-content:space-between;
+  padding:18px 28px;
+  background:#020c18;
 }
 
 .brand{font-weight:800;font-size:20px;color:var(--neon)}
-.brand span{color:var(--accent)}
-
-.top-nav a{
-color:#9fdbea;
-margin-left:18px;
-text-decoration:none;
-}
+.brand span{color:#ff4da6}
 
 .main{
-display:flex;
-gap:24px;
-max-width:1200px;
-margin:30px auto;
-padding:0 20px;
+  display:flex;
+  gap:24px;
+  max-width:1200px;
+  margin:28px auto;
+  padding:0 20px
 }
 
-.left-panel{
-width:320px;
-display:flex;
-flex-direction:column;
-gap:18px;
-}
-
-.jackpots,.account-card,.rules{
-background:#041423;
-padding:16px;
-border-radius:12px;
+.left-panel{width:300px}
+.jackpots,.account-card{
+  background:#020f1a;
+  padding:16px;
+  border-radius:12px;
+  margin-bottom:16px;
 }
 
 .jp-row{
-display:flex;
-justify-content:space-between;
-margin-top:6px;
-font-weight:700;
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  font-weight:700
 }
 
 .game-area{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:18px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px
 }
 
 .reel-area{
-display:flex;
-gap:18px;
-padding:20px;
-background:#021018;
-border-radius:14px;
+  display:flex;
+  gap:18px;
+  padding:20px;
+  background:#020f1a;
+  border-radius:14px;
 }
 
 .reel{
-width:160px;
-height:220px;
-background:#fff;
-border-radius:12px;
-overflow:hidden;
-position:relative;
+  width:180px;
+  height:220px;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  position:relative
 }
 
-.strip{
-position:absolute;
-top:0;
-left:0;
-right:0;
-}
+.strip{position:absolute;top:0;left:0;right:0}
 
 .sym{
-height:72px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:40px;
-border-bottom:1px solid #ddd;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  font-weight:800;
+  border-bottom:1px solid #ddd
 }
 
 .controls{text-align:center}
-
-input{
-padding:8px;
-border-radius:8px;
-border:none;
-width:120px;
-}
+.bet-row{display:flex;gap:10px;align-items:center}
 
 .spin{
-padding:12px 22px;
-border-radius:12px;
-border:none;
-font-weight:800;
-cursor:pointer;
-background:linear-gradient(90deg,#ffb86b,#ff6b9a);
+  padding:12px 22px;
+  border-radius:12px;
+  background:#ff6b9a;
+  border:none;
+  cursor:pointer;
+  font-weight:800
 }
 
-.result{margin-top:10px;font-weight:700}
+.result{min-height:28px;font-weight:700;margin-top:10px}
+
+/* WIN LINE */
+.reel.win{
+  box-shadow:0 0 25px 6px #00f0ff;
+  animation:winGlow 1s infinite alternate
+}
+@keyframes winGlow{
+  from{filter:brightness(1)}
+  to{filter:brightness(1.4)}
+}
+
+/* BIG WIN */
+.big-win{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999
+}
+.big-win h1{
+  color:#00f0ff;
+  font-size:72px;
+  text-shadow:0 0 40px #00f0ff;
+  animation:scale 0.6s infinite alternate
+}
+@keyframes scale{
+  from{transform:scale(1)}
+  to{transform:scale(1.1)}
+}
