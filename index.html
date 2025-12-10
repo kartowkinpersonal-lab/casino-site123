@@ -1,25 +1,19 @@
-Вот все готовые скрипты для модернизированного Neon Slots:
-
----
-
-### index.html
-
-```html
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Neon Slots — Demo</title>
 <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 <header class="site-header">
   <div class="brand">Neon <span>Slots</span></div>
   <nav class="top-nav">
-    <a href="history.html">История</a>
-    <a href="withdraw.html">Выплата</a>
-    <a id="btnAuth" href="#">Войти</a>
+    <a href="#">История</a>
+    <a href="#">Выплата</a>
+    <a href="#">Войти</a>
   </nav>
 </header>
 
@@ -27,96 +21,40 @@
   <section class="left-panel">
     <div class="jackpots">
       <h3>Джекпоты</h3>
-      <div class="jp-row"><div>Mini</div><div id="jpMini">0</div></div>
-      <div class="jp-row"><div>Major</div><div id="jpMajor">0</div></div>
-      <div class="jp-row"><div>Mega</div><div id="jpMega">0</div></div>
+      <div class="jp-row"><div>Mini</div><div id="jpMini">1050</div></div>
+      <div class="jp-row"><div>Major</div><div id="jpMajor">5025</div></div>
+      <div class="jp-row"><div>Mega</div><div id="jpMega">20010</div></div>
     </div>
 
     <div class="account-card">
       <h3>Аккаунт</h3>
-      <div id="userEmail">Гость</div>
-      <div>Баланс: <b id="bal">0</b> ₽</div>
-      <div>Бесплатные спины: <b id="freeSpins">0</b></div>
-      <div class="acct-actions">
-        <button id="openAuth">Войти / Регистрация</button>
-        <button id="logoutBtn" class="hidden">Выйти</button>
-      </div>
+      <div>Гость</div>
+      <div>Баланс: <b id="bal">5000</b> ₽</div>
+      <div>Бесплатные спины: <b>15</b></div>
     </div>
 
     <div class="rules">
-      <h4>Правила</h4>
-      <p>20 бесплатных спинов. После этого спин стоит 500 ₽. Джекпоты растут от ставок.</p>
+      20 бесплатных спинов. Потом ставка от 100 ₽ до 100 000 000 ₽.
     </div>
   </section>
 
   <section class="game-area">
-    <div class="reel-area" id="reelArea">
-      <div class="reel" id="reel1"></div>
-      <div class="reel" id="reel2"></div>
-      <div class="reel" id="reel3"></div>
+    <div class="reel-area">
+      <div class="reel"><div class="strip" id="r1"></div></div>
+      <div class="reel"><div class="strip" id="r2"></div></div>
+      <div class="reel"><div class="strip" id="r3"></div></div>
     </div>
 
     <div class="controls">
       <div class="bet-row">
-        <label>Ставка: <input id="betInput" type="number" value="500" min="100" step="100"></label>
-        <button id="spinBtn" class="spin">Крутить</button>
-        <button id="autoplayBtn">Auto x10</button>
+        <input id="bet" type="number" value="500" min="100" step="100">
+        <button id="spin" class="spin">Крутить</button>
       </div>
-      <div id="lastResult" class="result"></div>
+      <div id="result" class="result"></div>
     </div>
   </section>
 </main>
 
-<!-- Auth Modal -->
-<div id="authModal" class="modal hidden" aria-hidden="true">
-  <div class="modal-card">
-    <button class="modal-close" id="closeAuth">✕</button>
-    <h3 id="authTitle">Вход</h3>
-    <input id="email" placeholder="Email" type="email">
-    <input id="password" placeholder="Пароль" type="password">
-    <div class="modal-actions">
-      <button id="authPrimary" class="btn">Войти</button>
-      <button id="switchToRegister" class="btn ghost">Регистрация</button>
-    </div>
-    <div class="divider">или</div>
-    <button id="googleBtn" class="btn google">Войти через Google</button>
-    <div class="authMsg" id="authMsg"></div>
-  </div>
-</div>
-
-<!-- Floating Telegram support -->
-<a class="tg-float" href="https://t.me/Genesisacc" target="_blank" title="Поддержка в Telegram">
-  <img src="telegram.png" alt="tg">
-</a>
-
-<script src="auth.js"></script>
 <script src="reels.js"></script>
 </body>
 </html>
-```
-
----
-
-### styles.css
-
-```css
-:root{
-  --bg:#070607; --panel:#081019; --neon:#00f0ff; --accent:#ff4da6; --glass: rgba(255,255,255,0.04);
-}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 10% 10%, #0b1220, #000), linear-gradient(180deg,#021018,#000);color:#e6f7ff;font-family:Inter,Arial,Helvetica,sans-serif}
-.site-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;background:linear-gradient(90deg,#00171f,#071426);box-shadow:0 8px 30px rgba(0,0,0,.6);position:sticky;top:0;z-index:10}
-.brand{font-weight:800;font-size:20px;color:var(--neon)} .brand span{color:var(--accent)}
-.top-nav a{color:#9fdbea;margin-left:18px;text-decoration:none;font-weight:600}
-.main{display:flex;gap:24px;max-width:1200px;margin:28px auto;padding:0 20px}
-.left-panel{width:320px;display:flex;flex-direction:column;gap:18px}
-.jackpots{background:linear-gradient(180deg,#021620,#001017);padding:16px;border-radius:12px;border:1px solid rgba(0,255,255,0.06);box-shadow:0 8px 30px rgba(0,0,0,.6)}
-.jp-row{display:flex;justify-content:space-between;padding:8px 0;color:#bfeff6;font-weight:700}
-.account-card{background:linear-gradient(180deg,#041423,#021018);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-.acct-actions{display:flex;gap:8px;margin-top:8px}
-.btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:var(--neon);color:#021;}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#9fdbea}
-.rules{background:var(--panel);padding:12px;border-radius:10px;color:#a7d9df;font-size:14px}
-.game-area{flex:1;display:flex;flex-direction:column;gap:18px;align-items:center}
-.reel-area{display:flex;gap:
-```
